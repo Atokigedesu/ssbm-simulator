@@ -70,6 +70,20 @@ const calculationInFrame = {
   shieldLag(situation) {
     return Math.floor(20 * (situation.hitbox.damage * 9 + 40) / 402);
   },
+
+  /**
+   * 着地時に倒れ状態になるかどうか
+   */
+  isDown(situation) {
+    return basicPower(situation) >= 80;
+  },
+
+  /**
+   * 叩き起こしができるかどうか
+   */
+  canMakeStanding(situation) {
+    return basicPower(situation) < 35;
+  },
 };
 
 export default calculationInFrame;

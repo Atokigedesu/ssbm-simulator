@@ -57,4 +57,32 @@ describe('calculationInFrame', () => {
       });
     });
   });
+
+  describe('ダウン判定は', () => {
+    context('0 % シークにファルコンの膝を当てたとき', () => {
+      it('ダウンしない', () => {
+        assert(calc.isDown(situations.hiza) === false);
+      });
+    });
+
+    context('64 % のファルコンにマルスの横スマ先端を当てたとき', () => {
+      it('ダウンする', () => {
+        assert(calc.isDown(situations.captainDragonKiller) === true);
+      });
+    });
+  });
+
+  describe('叩き起こしは', () => {
+    context('0 % のキャラにシークの弱を当てたとき', () => {
+      it('できる', () => {
+        assert(calc.canMakeStanding(situations.standUp) === true);
+      });
+    });
+
+    context('0 % のキャラにファルコンの膝を当てたとき', () => {
+      it('できない', () => {
+        assert(calc.canMakeStanding(situations.hiza) === false);
+      });
+    });
+  });
 });

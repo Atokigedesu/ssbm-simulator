@@ -78,6 +78,15 @@ const situations = {
       percentage: 300,
     });
   })(),
+  // 0 % のマリオにシークの弱
+  standUp: (() => {
+    const jab = data.hitboxes.find((hitbox) =>
+      hitbox.character_id === 'Sk' && hitbox.move === 'jab1');
+    return new Situation({
+      hitbox: jab,
+      percentage: 0,
+    });
+  })(),
 };
 
 export default situations;
