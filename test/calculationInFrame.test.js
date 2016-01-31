@@ -19,6 +19,12 @@ describe('calculationInFrame', () => {
         assert(Math.round(flightAngle) === 63);
       });
     });
+
+    context('無変更相手にサクライベクトル技を当てたとき', () => {
+      it('44 度になる', () => {
+        assert(calc.flightAngle(situations.captainDragonKiller) === 44);
+      });
+    });
   });
 
   describe('硬直フレームは', () => {

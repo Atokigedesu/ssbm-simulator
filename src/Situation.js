@@ -16,7 +16,7 @@ import data from 'ssbm-data';
  */
 
 const defaultOpt = {
-  character: data.characters.Ma,
+  character: data.characters.Mr,
   hitbox: data.hitboxes[0],
   percentage: 0,
   opco: 1,

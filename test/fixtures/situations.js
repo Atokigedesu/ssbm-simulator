@@ -13,12 +13,27 @@ const situations = {
       percentage: 64,
     });
   })(),
-  // 外側横変更相手にフォックスの上スマ
+  // 外側変更の 100 % のフォックスにマルスの横スマ先端
+  foxKiller: (() => {
+    const fox = data.characters.Fx;
+    const dragonKiller = data.hitboxes.find((hitbox) =>
+      hitbox.character_id === 'Ms' && hitbox.damage === 20);
+    return new Situation({
+      character: fox,
+      hitbox: dragonKiller,
+      percentage: 100,
+      di: 0,
+    });
+  })(),
+  // 外側横変更の 100 % シークにフォックスの上スマ
   toryaaa: (() => {
+    const sheik = data.characters.Sk;
     const smashUp = data.hitboxes.find((hitbox) =>
       hitbox.character_id === 'Fx' && hitbox.damage === 18);
     return new Situation({
+      character: sheik,
       hitbox: smashUp,
+      percentage: 100,
       di: 0,
     });
   })(),
@@ -42,6 +57,25 @@ const situations = {
       character: sheik,
       hitbox: hiza,
       percentage: 0,
+    });
+  })(),
+  // 300 % のマリオにピチューの下スマ
+  suddendeath: (() => {
+    const critialDA = data.hitboxes.find((hitbox) =>
+      hitbox.character_id === 'Pc' && hitbox.move === 'smash_down');
+    return new Situation({
+      hitbox: critialDA,
+      percentage: 300,
+    });
+  })(),
+  // 300 % のマリオにファルコンパンチ
+  overkill: (() => {
+    const falconPanch = data.hitboxes.find((hitbox) =>
+      hitbox.character_id === 'Ca' && hitbox.damage === 27 &&
+      hitbox.base_knockback === 30);
+    return new Situation({
+      hitbox: falconPanch,
+      percentage: 300,
     });
   })(),
 };
