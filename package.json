@@ -24,6 +24,7 @@
   "license": "MIT",
   "main": "lib/main.js",
   "scripts": {
+    "build": "babel src -d lib",
     "test": "eslint src && mocha --compilers js:espower-babel/guess"
   }
 }
